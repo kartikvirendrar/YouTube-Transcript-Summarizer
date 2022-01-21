@@ -11,6 +11,7 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
   headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5000');
   headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5000/yts/<string:link>');
   headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5000/yts');
+  headers.append('Access-Control-Allow-Origin', '*');
   headers.append('Access-Control-Allow-Credentials', 'true');
 
   headers.append('GET', 'POST', 'OPTIONS');
@@ -22,10 +23,20 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
                                 })
                                 .then((dataobj) => {
                                     document.getElementById('a2').innerHTML=dataobj.summary;
+                                    chrome.tabs.executeScript({
+                                        code: `var injectElement = document.createElement('div');
+                                        injectElement.id = 'injectedelement1';
+                                        injectElement.innerHTML = "<br></br><h1 style='color:white;text-align:center;'>Summary</h1><br></br><h2 style='color:white;text-align:center;'>${dataobj.summary}</h2>";
+                                        document.querySelector("#meta-contents > ytd-video-secondary-info-renderer").appendChild(injectElement);`
+                                      });
                                 })
-                                .catch(err => {console.error(err);});           
+                                .catch(err => {console.error(err);document.getElementById('a2').innerHTML="unable to get summary!";chrome.tabs.executeScript({
+                                    code: `var injectElement = document.createElement('div');
+                                    injectElement.id = 'injectedelement1';
+                                    injectElement.innerHTML = '<br></br><h1 style="color:white;text-align:center;">Unable to fetch Summary</h1>';
+                                    document.querySelector("#meta-contents > ytd-video-secondary-info-renderer").appendChild(injectElement);`
+                                  });});           
                 }
         fetchapi();
     }
 });
-
