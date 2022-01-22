@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Transcript Summarizer</title>
+    <script src="settings.js"></script>
+    <style>
+        body {
+          height: 400px;
+          width: 400px;
+        }
+        #a1{
+            text-align: center;
+        }
+        #a3{
+            text-align: center;
+            justify-content: center;
+        }
+        #a4{
+            text-align: center;
+            justify-content: center;
+        }
+        </style>
+</head>
+<body>
+    <a  href="./popup.html" style="text-decoration:none; color: black;"><h1 id="a1">Youtube Transcript Summarizer</h1><hr></a>
+    <br><br><h2 id="a3">Settings</h2>
+    <br><br><form style="text-align:center">
+        <label>No. of Lines:</label>
+        <input type="number" id="lines" name="lines" placeholder=10 required><br><br>
+        <label>Split Value:</label>
+        <input type="number" id="spl" name="spl" placeholder=3 required><br><br>
+        <a href="./popup.html"><button id="save">Save</button></a>
+    </form>
+    <h3 id="a4"></h3>
+</body>
+</html>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Youtube Transcript Summarizer</title>
     <script src="popup.js"></script>
-    <script src="inject.js"></script>
     <style>
         body {
           height: 400px;
@@ -19,10 +19,26 @@
             text-align: center;
             justify-content: center;
         }
+        .loader {
+            margin-top: 20%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 6px solid #f3f3f3; 
+            border-top: 6px solid black;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         </style>
 </head>
 <body>
-    <h1 id="a1">Youtube Transcript Summarizer</h1><hr>
-    <p id="a2">Summary</p>
+    <a  href="./popup.html" style="text-decoration:none; color: black;"><h1 id="a1">Youtube Transcript Summarizer</h1><hr></a>
+    <h1  style="text-align: center;"><a href="./settings.html"><button class="fa" alt="Settings" style="font-size:24px;">&#xf013;</button></a></h1>
+    <hr><p id="a2"><br><br><br><br><br><br><br><button>Summarize</button></p>
 </body>
 </html>
